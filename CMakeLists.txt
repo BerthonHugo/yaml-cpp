@@ -1,6 +1,5 @@
-# 3.5 is actually available almost everywhere, but this a good minimum.
-# 3.14 as the upper policy limit avoids CMake deprecation warnings.
-cmake_minimum_required(VERSION 3.4...3.14)
+# 3.5 is actually available almost everywhere, but this a good minimum
+cmake_minimum_required(VERSION 3.4)
 
 # enable MSVC_RUNTIME_LIBRARY target property
 # see https://cmake.org/cmake/help/latest/policy/CMP0091.html
@@ -8,7 +7,7 @@ if(POLICY CMP0091)
   cmake_policy(SET CMP0091 NEW)
 endif()
 
-project(YAML_CPP VERSION 0.8.0 LANGUAGES CXX)
+project(YAML_CPP VERSION 0.7.0 LANGUAGES CXX)
 
 set(YAML_CPP_MAIN_PROJECT OFF)
 if(CMAKE_SOURCE_DIR STREQUAL PROJECT_SOURCE_DIR)
@@ -169,7 +168,6 @@ if (YAML_CPP_INSTALL)
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
                 FILES_MATCHING PATTERN "*.h")
   install(EXPORT yaml-cpp-targets
-    NAMESPACE yaml-cpp::
     DESTINATION "${CONFIG_EXPORT_DIR}")
   install(FILES
       "${PROJECT_BINARY_DIR}/yaml-cpp-config.cmake"
